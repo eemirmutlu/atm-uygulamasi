@@ -57,17 +57,20 @@ function emir() {
 // }
 
 function girisKontrol() {
-    let asilSifre = Number(prompt("Şifrenizi belirleyiniz:"))
+    alert("Sakin olun dolandırıcı değiliz!")
+    let asilSifre = Number(prompt("4 haneli bir şifrenizi belirleyiniz:"))
     let denemeSayisi = 0;
 
     while (denemeSayisi < 3) {
-        let girilenSifre = Number(prompt("Lütfen şifrenizi giriniz:"));
+        let girilenSifre = Number(prompt("Lütfen 4 haneli şifrenizi giriniz:"));
 
         if (girilenSifre === asilSifre) {
             alert("Giriş başarılı!");
             alert("ATM Uygulaması çalıştırılıyor...");
             emir()
             return;
+        } else if (girilenSifre === null) {
+            alert("Lütfen geçerli bir şifre oluşturunuz.")
         } else {
             alert("Yanlış şifre. Tekrar deneyin.");
             denemeSayisi++;
@@ -77,4 +80,4 @@ function girisKontrol() {
     alert("3 başarısız deneme sonucu hesap bloke edildi.");
 }
 
-girisKontrol();
+// girisKontrol();
