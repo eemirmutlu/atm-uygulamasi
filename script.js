@@ -17,21 +17,21 @@ function emir() {
         *****************************************
         `))
         if (soru === 1) {
-            alert("güncel bakiyeniz: " + bakiye)
+            alert("Güncel bakiyeniz: " + bakiye)
         } else if (soru === 2) {
-            let paracek = Number(prompt("çekmek istediğiniz tutarı girin:"))
+            let paracek = Number(prompt("Çekmek istediğiniz tutarı girin:"))
             if (paracek > bakiye) {
                 alert("Bu işlemi gerçekleştiremezsiniz.")
             } else if (bakiye > paracek) {
                 bakiye -= paracek
-                alert("güncel bakiyeniz: " + bakiye)
+                alert("Güncel bakiyeniz: " + bakiye)
 
             }
         } else if (soru === 3) {
-            let yatir = Number(prompt("yatırmak istediğiniz tutarı giriniz."))
+            let yatir = Number(prompt("Yatırmak istediğiniz tutarı giriniz."))
             if (0 < yatir) {
                 bakiye += yatir
-                alert("güncel bakiyeniz: " + bakiye)
+                alert("Güncel bakiyeniz: " + bakiye)
             } else (
                 alert("Böyle bir işlem gerçelşetiremezzsiniz.")
             )
