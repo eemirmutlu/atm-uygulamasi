@@ -1,40 +1,80 @@
-
+// let sifre = Number(prompt("Şifre belirleyiniz:"))
+// alert(sifre)
 let bakiye = Number(500)
 
-while (true) {
-    let soru = Number(prompt(`
-    *****************************************
-    1. Bakiye Sorgulama
-    2. Para Çekme
-    3. Para Yatırma
-    4. Çıkış Yap
+// let sifreGiris = Number(prompt("Şifrenizi giriniz:"))
 
-    1'den 4'e kadar bir seçenek yazınız.
-    *****************************************
-    `))
-    if (soru === 1) {
-        alert(bakiye)
-    } else if (soru === 2) {
-        let paracek = Number(prompt("çekmek istediğiniz tutarı girin:"))
-        if (paracek > bakiye) {
-            alert("Bu işlemi gerçekleştiremezsiniz.")
-        } else if (bakiye > paracek) {
-            bakiye -= paracek
-            alert(bakiye)
+function emir() {
+    while (true) {
+        let soru = Number(prompt(`
+        *****************************************
+        1. Bakiye Sorgulama
+        2. Para Çekme
+        3. Para Yatırma
+        4. Çıkış Yap
+    
+        1'den 4'e kadar bir seçenek yazınız.
+        *****************************************
+        `))
+        if (soru === 1) {
+            alert("güncel bakiyeniz: " + bakiye)
+        } else if (soru === 2) {
+            let paracek = Number(prompt("çekmek istediğiniz tutarı girin:"))
+            if (paracek > bakiye) {
+                alert("Bu işlemi gerçekleştiremezsiniz.")
+            } else if (bakiye > paracek) {
+                bakiye -= paracek
+                alert("güncel bakiyeniz: " + bakiye)
 
+            }
+        } else if (soru === 3) {
+            let yatir = Number(prompt("yatırmak istediğiniz tutarı giriniz."))
+            if (0 < yatir) {
+                bakiye += yatir
+                alert("güncel bakiyeniz: " + bakiye)
+            } else (
+                alert("Böyle bir işlem gerçelşetiremezzsiniz.")
+            )
+        } else if (soru === 4) {
+            alert("Çıkış yapılıyor.")
+            break;
+        } else {
+            alert("Lütfen geçerli bir seçim yapınız")
         }
-    } else if (soru === 3) {
-        let yatir = Number(prompt("yatırmak istediğiniz tutarı giriniz."))
-        if (0 < yatir) {
-            bakiye += yatir
-            alert(bakiye)
-        } else (
-            alert("Böyle bir işlem gerçelşetiremezzsiniz.")
-        )
-    } else if (soru === 4) {
-        break;
-    } else {
-        alert("Lütfen geçerli bir seçim yapınız")
     }
 }
 
+// while (true) {
+//     if (sifreGiris != sifre) {
+//         alert("tekrar giriniz")
+//         continue;
+//     } else if (sifreGiris === sifre) {
+//         emir();
+//         break
+//     } else {
+//         alert("Hatalı giriş yaptınız, tekrar deneyiniz.");
+//     }
+// }
+
+function girisKontrol() {
+    let asilSifre = Number(prompt("Şifrenizi belirleyiniz:"))
+    let denemeSayisi = 0;
+
+    while (denemeSayisi < 3) {
+        let girilenSifre = Number(prompt("Lütfen şifrenizi giriniz:"));
+
+        if (girilenSifre === asilSifre) {
+            alert("Giriş başarılı!");
+            alert("ATM Uygulaması çalıştırılıyor...");
+            emir()
+            return;
+        } else {
+            alert("Yanlış şifre. Tekrar deneyin.");
+            denemeSayisi++;
+        }
+    }
+
+    alert("3 başarısız deneme sonucu hesap bloke edildi.");
+}
+
+girisKontrol();
