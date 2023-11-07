@@ -71,6 +71,8 @@ function girisKontrol() {
             return;
         } else if (girilenSifre === null) {
             alert("Lütfen geçerli bir şifre oluşturunuz.")
+        } else if (girilenSifre === "") {
+            alert("Boş alanlar doldurulmamalıdır.")
         } else {
             alert("Yanlış şifre. Tekrar deneyin.");
             denemeSayisi++;
